@@ -50,7 +50,7 @@ export const Status = () => {
                     {project.url != "/" && (
                       <Link
                         href={project.url}
-                        className="text-primary text-lime-600"
+                        className="text-lime-600 hover:font-bold"
                       >
                         - Voir le site -
                       </Link>
@@ -59,7 +59,7 @@ export const Status = () => {
                     {project.rep != "/" && (
                       <Link
                         href={project.rep}
-                        className="text-primary text-orange-600"
+                        className="text-orange-600 hover:font-bold"
                       >
                         - Voir le repository -
                       </Link>
