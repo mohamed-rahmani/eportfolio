@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Code } from "./Code";
 import { Section } from "./Section";
 import { Uspn13Icon } from "./icons/Uspn13Icon";
@@ -13,7 +14,7 @@ export const Hero = () => {
         <p className="text-justify">
           Souhaitant devenir un développeur full stack pour l'engouement de
           créer des solutions informatiques, j'ai intégré le BUT Informatique à
-          l'Université{" "}
+          l'Université
           <Code className="inline-flex items-center gap-1">
             <Uspn13Icon size={16} className="inline" /> Sorbonne Paris Nord
           </Code>

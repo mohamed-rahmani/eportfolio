@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Badge } from "@/components/ui/badge";
 import { Code } from "./Code";
 import { Section } from "./Section";
