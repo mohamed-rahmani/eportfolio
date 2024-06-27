@@ -186,14 +186,14 @@ export const Status = () => {
 
 const SIDE_PROJECTS: SideProjectProps[] = [
   {
-    Logo: Workflow,
-    title: "Site extranet",
+    Logo: GraduationCap,
+    title: "Site de formation en ligne",
     subtitle: "SAS PERFORM VISION",
     description:
-      "Pour mon premier semestre en 2ème année de BUT Informatique, j'ai eu pour projet d'entreprise de réaliser, au sein d'un groupe de 6, un site extranet en tant que développeur full stack. Pour ce projet, nous avons décidé de le développer entièrement en PHP avec l'architecture MVC.",
-    outil: ["html", "css", "js", "php", "postgresql"],
-    url: "/",
-    rep: "https://gitlab.sorbonne-paris-nord.fr/12203379/zeengine",
+      "Pour mon deuxième semestre en 2ème année de BUT Informatique, j'ai eu pour projet d'entreprise d'auditer un site de formations en ligne, dans une équipe de 6 en tant qu'auditeur interne, qui était à la base en PHP mais avec mon groupe nous avons décider de moderniser l'application en utilisant React pour le front-end et crée une API REST Laravel pour le back-end avec la même structure de base de donnée relationnel sur PostgreSQL.",
+    outil: ["react", "css", "laravel", "api", "postgresql"],
+    url: "https://perform-vision.netchill.net/",
+    rep: "https://gitlab.sorbonne-paris-nord.fr/lorbh/audit-paqueta",
   },
   {
     Logo: ShoppingCart,
@@ -206,14 +206,14 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     rep: "/",
   },
   {
-    Logo: GraduationCap,
-    title: "Site de formation en ligne",
+    Logo: Workflow,
+    title: "Site extranet",
     subtitle: "SAS PERFORM VISION",
     description:
-      "Pour mon deuxième semestre en 2ème année de BUT Informatique, j'ai eu pour projet d'entreprise d'auditer un site de formations en ligne, dans une équipe de 6 en tant qu'auditeur interne, qui était à la base en PHP mais avec mon groupe nous avons décider de moderniser l'application en utilisant React pour le front-end et crée une API REST Laravel pour le back-end avec la même structure de base de donnée relationnel sur PostgreSQL.",
-    outil: ["react", "css", "laravel", "api", "postgresql"],
-    url: "https://perform-vision.netchill.net/",
-    rep: "https://gitlab.sorbonne-paris-nord.fr/lorbh/audit-paqueta",
+      "Pour mon premier semestre en 2ème année de BUT Informatique, j'ai eu pour projet d'entreprise de réaliser, au sein d'un groupe de 6, un site extranet en tant que développeur full stack. Pour ce projet, nous avons décidé de le développer entièrement en PHP avec l'architecture MVC.",
+    outil: ["html", "css", "js", "php", "postgresql"],
+    url: "/",
+    rep: "https://gitlab.sorbonne-paris-nord.fr/12203379/zeengine",
   },
 ];
 
