@@ -1,4 +1,5 @@
 "use client";
+import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import {
   ArrowUpRight,
@@ -9,7 +10,17 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { Code } from "./Code";
 import { Section } from "./Section";
+import { CssLogo } from "./icons/CssLogo";
+import { HtmlLogo } from "./icons/HtmlLogo";
+import { JsLogo } from "./icons/JsLogo";
+import { LaravelLogo } from "./icons/LaravelLogo";
+import { LiquidLogo } from "./icons/LiquidLogo";
+import { PhpLogo } from "./icons/PhpLogo";
+import { PostgresqlLogo } from "./icons/PostgresqlLogo";
+import { ReactLogo } from "./icons/ReactLogo";
+import { ShopifyLogo } from "./icons/ShopifyLogo";
 
 export const Status = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
@@ -26,7 +37,7 @@ export const Status = () => {
     <Section className="flex max-md:flex-col items-start gap-4">
       <div className="flex-[3] w-full">
         <Card className="w-full p-4 flex flex-col gap-2">
-          <p className="text-lg text-muted-foreground">Projets personnels</p>
+          <p className="text-lg text-muted-foreground">Mes projets</p>
           <div className="flex flex-col gap-4">
             {SIDE_PROJECTS.map((project, index) => (
               <div
@@ -40,6 +51,7 @@ export const Status = () => {
                   title={project.title}
                   subtitle={project.subtitle}
                   description={project.description}
+                  outil={project.outil}
                   url={project.url}
                   rep={project.rep}
                 />
@@ -47,23 +59,100 @@ export const Status = () => {
                   <div className="p-3">
                     <p className="text-justify">{project.description}</p>
                     <br />
-                    {project.url != "/" && (
-                      <Link
-                        href={project.url}
-                        className="text-lime-600 hover:font-bold"
-                      >
-                        - Voir le site -
-                      </Link>
+                    {project.outil && (
+                      <p className="mb-2">
+                        <Badge variant={"outline"}>Stack technique</Badge>
+                      </p>
                     )}
+                    {project.outil &&
+                      project.outil.map((outil, index) => (
+                        <div
+                          key={index}
+                          className="inline-flex text-sm text-muted-foreground text-justify"
+                        >
+                          {outil === "html" && (
+                            <Code className="inline-flex items-center gap-1 mr-2">
+                              <HtmlLogo size={14} className="inline" />
+                              HTML
+                            </Code>
+                          )}
+                          {outil === "react" && (
+                            <Code className="inline-flex items-center gap-1 mr-2">
+                              <ReactLogo size={19} className="inline" />
+                              React
+                            </Code>
+                          )}
+                          {outil === "css" && (
+                            <Code className="inline-flex items-center gap-1 mr-2">
+                              <CssLogo size={16} className="inline" />
+                              CSS
+                            </Code>
+                          )}
+                          {outil === "js" && (
+                            <Code className="inline-flex items-center gap-1 mr-2">
+                              <JsLogo size={16} className="inline" />
+                              JS
+                            </Code>
+                          )}
+                          {outil === "php" && (
+                            <Code className="inline-flex items-center gap-1 mr-2">
+                              <PhpLogo size={16} className="inline" />
+                              PHP
+                            </Code>
+                          )}
+                          {outil === "laravel" && (
+                            <Code className="inline-flex items-center gap-1 mr-2">
+                              <LaravelLogo size={16} className="inline" />
+                              Laravel
+                            </Code>
+                          )}
+                          {outil === "postgresql" && (
+                            <Code className="inline-flex items-center gap-1 mr-2">
+                              <PostgresqlLogo size={16} className="inline" />
+                              PostgreSQL
+                            </Code>
+                          )}
+                          {outil === "shopify" && (
+                            <Code className="inline-flex items-center gap-1 mr-2">
+                              <ShopifyLogo size={16} className="inline" />
+                              Shopify
+                            </Code>
+                          )}
+                          {outil === "liquid" && (
+                            <Code className="inline-flex items-center gap-1 mr-2">
+                              <LiquidLogo size={16} className="inline" />
+                              Liquid
+                            </Code>
+                          )}
+                        </div>
+                      ))}
                     <br />
-                    {project.rep != "/" && (
-                      <Link
-                        href={project.rep}
-                        className="text-orange-600 hover:font-bold"
-                      >
-                        - Voir le repository -
-                      </Link>
-                    )}
+                    <br />
+                    <div className="inline-flex">
+                      {project.url != "/" && (
+                        <>
+                          <br />
+                          <Link
+                            href={project.url}
+                            className="text-lime-600 mr-2"
+                          >
+                            <button className="px-4 py-1 bg-lime-600 text-white font-bold rounded-sm hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                              Voir le site
+                            </button>
+                          </Link>
+                        </>
+                      )}
+                      {project.rep != "/" && (
+                        <Link
+                          href={project.rep}
+                          className="text-orange-600 mr-2"
+                        >
+                          <button className="px-4 py-1 bg-orange-600 text-white font-bold rounded-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                            Voir le repository
+                          </button>
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 )}
               </div>
@@ -102,6 +191,7 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     subtitle: "SAS PERFORM VISION",
     description:
       "Pour mon premier semestre en 2ème année de BUT Informatique, j'ai eu pour projet d'entreprise de réaliser, au sein d'un groupe de 6, un site extranet en tant que développeur full stack. Pour ce projet, nous avons décidé de le développer entièrement en PHP avec l'architecture MVC.",
+    outil: ["html", "css", "js", "php", "postgresql"],
     url: "/",
     rep: "https://gitlab.sorbonne-paris-nord.fr/12203379/zeengine",
   },
@@ -111,6 +201,7 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     subtitle: "DIGI&ITECH",
     description:
       "Duran mon stage au sein de l'entreprise Digi&Tech, j'ai créer un site de e-commerce à l'aide du framework shopify. Le site a été principalement développé sur le CMS Shopify avec son propre langage de templating LIQUID.",
+    outil: ["shopify", "liquid"],
     url: "https://f904f9-3.myshopify.com",
     rep: "/",
   },
@@ -119,7 +210,8 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     title: "Site de formation en ligne",
     subtitle: "SAS PERFORM VISION",
     description:
-      "Pour mon deuxième semestre en 2ème année de BUT Informatique, j'ai eu pour projet d'entreprise d'auditer un site de formations en ligne, dans une équipe de 6 en tant qu'auditeur interne, qui était à la base en PHP mais avec mon groupe nous avons décider de moderniser l'application en utilisant React pour le front-end et crée une API Laravel pour le back-end avec la même structure de base de donnée relationnel sur PostgreSQL.",
+      "Pour mon deuxième semestre en 2ème année de BUT Informatique, j'ai eu pour projet d'entreprise d'auditer un site de formations en ligne, dans une équipe de 6 en tant qu'auditeur interne, qui était à la base en PHP mais avec mon groupe nous avons décider de moderniser l'application en utilisant React pour le front-end et crée une API REST Laravel pour le back-end avec la même structure de base de donnée relationnel sur PostgreSQL.",
+    outil: ["react", "css", "laravel", "api", "postgresql"],
     url: "https://perform-vision.netchill.net/",
     rep: "https://gitlab.sorbonne-paris-nord.fr/lorbh/audit-paqueta",
   },
@@ -130,6 +222,7 @@ type SideProjectProps = {
   title: string;
   subtitle: string;
   description: string;
+  outil: Array<string>;
   url: string;
   rep: string;
 };
