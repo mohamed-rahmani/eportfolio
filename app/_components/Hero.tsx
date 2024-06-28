@@ -9,7 +9,7 @@ export const Hero = () => {
       <div className="flex-[3] flex flex-col gap-2">
         <h2 className="font-caption font-bold text-5xl">Mohamed RAHMANI</h2>
         <h3 className="text-3xl font-caption text-primary">
-          Étudiant en informatique
+          Computer Science Student
         </h3>
         <p className="text-justify">
           Souhaitant devenir un développeur full stack pour l'engouement de

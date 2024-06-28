@@ -60,15 +60,15 @@ export const Skills = () => {
           <PostgresqlLogo size={42} />
           <h3 className="text-2xl font-semibold tracking-tight">PostgreSQL</h3>
           <p className="text-sm text-muted-foreground text-justify">
-            Bien entendu pour créer des applications digne de ce nom, il faut
-            maîtriser un SGBD et celui que j'ai eu l'occasion d'utiliser sur la
-            plupart de mes projets est{" "}
+            Bien entendu pour créer des applications digne de ce nom, il est
+            essentiel de maîtriser un SGBD et celui que j'ai eu l'occasion
+            d'utiliser sur la plupart de mes projets est{" "}
             <Code className="inline-flex items-center gap-1">
               <PostgresqlLogo size={16} className="inline" />
               PostgreSQL
             </Code>{" "}
             de la modélisation au SQL. J'ai pu me familiariser avec les concepts
-            de normalisation, dénormalisation avec le format{" "}
+            de normalisation et de dénormalisation avec le format{" "}
             <Code className="inline-flex items-center gap-1">
               <JsonLogo size={16} className="inline" />
               JSON

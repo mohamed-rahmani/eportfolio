@@ -78,6 +78,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         accordion: "accordion 1s ease-in-out",
         fadeIn: "fadeIn 5s ease-in-out",
+        "spin-slow": "spin 5s linear infinite",
       },
     },
   },

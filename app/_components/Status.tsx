@@ -21,6 +21,8 @@ import { PhpLogo } from "./icons/PhpLogo";
 import { PostgresqlLogo } from "./icons/PostgresqlLogo";
 import { ReactLogo } from "./icons/ReactLogo";
 import { ShopifyLogo } from "./icons/ShopifyLogo";
+import { TypescriptLogo } from "./icons/TypescriptLogo";
+import { UserLogo } from "./icons/UserLogo";
 
 export const Status = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
@@ -51,6 +53,7 @@ export const Status = () => {
                   title={project.title}
                   subtitle={project.subtitle}
                   description={project.description}
+                  role={project.role}
                   outil={project.outil}
                   url={project.url}
                   rep={project.rep}
@@ -58,6 +61,27 @@ export const Status = () => {
                 {openFaqIndex === index && (
                   <div className="p-3">
                     <p className="text-justify">{project.description}</p>
+                    <br />
+                    {project.role && (
+                      <>
+                        <p className="mb-2">
+                          <Badge variant={"outline"}>Rôle</Badge>
+                        </p>
+                        {project.role == "Auditeur Interne" && (
+                          <Code className="inline-flex items-center gap-1 mr-2 text-sm">
+                            <UserLogo size={16} className="inline" />
+                            Auditeur interne
+                          </Code>
+                        )}
+                        {project.role == "Développeur full stack" && (
+                          <Code className="inline-flex items-center gap-1 mr-2 text-sm">
+                            <UserLogo size={16} className="inline" />
+                            Développeur full stack
+                          </Code>
+                        )}
+                      </>
+                    )}
+                    <br />
                     <br />
                     {project.outil && (
                       <p className="mb-2">
@@ -71,55 +95,63 @@ export const Status = () => {
                           className="inline-flex text-sm text-muted-foreground text-justify"
                         >
                           {outil === "html" && (
-                            <Code className="inline-flex items-center gap-1 mr-2">
+                            <Code className="inline-flex items-center gap-1 mr-2 mb-2">
                               <HtmlLogo size={14} className="inline" />
                               HTML
                             </Code>
                           )}
                           {outil === "react" && (
-                            <Code className="inline-flex items-center gap-1 mr-2">
-                              <ReactLogo size={19} className="inline" />
+                            <Code className="inline-flex items-center gap-1 mr-2 mb-2">
+                              <div className="animate-spin-slow delay-150">
+                                <ReactLogo size={19} className="inline" />
+                              </div>
                               React
                             </Code>
                           )}
                           {outil === "css" && (
-                            <Code className="inline-flex items-center gap-1 mr-2">
+                            <Code className="inline-flex items-center gap-1 mr-2 mb-2">
                               <CssLogo size={16} className="inline" />
                               CSS
                             </Code>
                           )}
+                          {outil === "typescript" && (
+                            <Code className="inline-flex items-center gap-1 mr-2 mb-2">
+                              <TypescriptLogo size={16} className="inline" />
+                              Typescript
+                            </Code>
+                          )}
                           {outil === "js" && (
-                            <Code className="inline-flex items-center gap-1 mr-2">
+                            <Code className="inline-flex items-center gap-1 mr-2 mb-2">
                               <JsLogo size={16} className="inline" />
                               JS
                             </Code>
                           )}
                           {outil === "php" && (
-                            <Code className="inline-flex items-center gap-1 mr-2">
+                            <Code className="inline-flex items-center gap-1 mr-2 mb-2">
                               <PhpLogo size={16} className="inline" />
                               PHP
                             </Code>
                           )}
                           {outil === "laravel" && (
-                            <Code className="inline-flex items-center gap-1 mr-2">
+                            <Code className="inline-flex items-center gap-1 mr-2 mb-2">
                               <LaravelLogo size={16} className="inline" />
                               Laravel
                             </Code>
                           )}
                           {outil === "postgresql" && (
-                            <Code className="inline-flex items-center gap-1 mr-2">
+                            <Code className="inline-flex items-center gap-1 mr-2 mb-2">
                               <PostgresqlLogo size={16} className="inline" />
                               PostgreSQL
                             </Code>
                           )}
                           {outil === "shopify" && (
-                            <Code className="inline-flex items-center gap-1 mr-2">
+                            <Code className="inline-flex items-center gap-1 mr-2 mb-2">
                               <ShopifyLogo size={16} className="inline" />
                               Shopify
                             </Code>
                           )}
                           {outil === "liquid" && (
-                            <Code className="inline-flex items-center gap-1 mr-2">
+                            <Code className="inline-flex items-center gap-1 mr-2 mb-2">
                               <LiquidLogo size={16} className="inline" />
                               Liquid
                             </Code>
@@ -136,7 +168,7 @@ export const Status = () => {
                             href={project.url}
                             className="text-lime-600 mr-2"
                           >
-                            <button className="px-4 py-1 bg-lime-600 text-white font-bold rounded-sm hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                            <button className="px-4 py-1 bg-black text-white text-sm font-bold rounded-sm hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
                               Voir le site
                             </button>
                           </Link>
@@ -147,7 +179,7 @@ export const Status = () => {
                           href={project.rep}
                           className="text-orange-600 mr-2"
                         >
-                          <button className="px-4 py-1 bg-orange-600 text-white font-bold rounded-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                          <button className="px-4 py-1 bg-black text-white text-sm font-bold rounded-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
                             Voir le repository
                           </button>
                         </Link>
@@ -187,11 +219,12 @@ export const Status = () => {
 const SIDE_PROJECTS: SideProjectProps[] = [
   {
     Logo: GraduationCap,
-    title: "Site de formation en ligne",
+    title: "Site de formations en ligne",
     subtitle: "SAS PERFORM VISION",
     description:
-      "Pour mon deuxième semestre en 2ème année de BUT Informatique, j'ai eu pour projet d'entreprise d'auditer un site de formations en ligne, dans une équipe de 6 en tant qu'auditeur interne, qui était à la base en PHP mais avec mon groupe nous avons décider de moderniser l'application en utilisant React pour le front-end et crée une API REST Laravel pour le back-end avec la même structure de base de donnée relationnel sur PostgreSQL.",
-    outil: ["react", "css", "laravel", "api", "postgresql"],
+      "Pour mon deuxième semestre en 2ème année de BUT Informatique, j'ai eu pour projet d'entreprise d'auditer un site de formations en ligne, dans une équipe de 6 en tant qu'auditeur interne, qui était principalement codé en PHP mais avec mon groupe nous avons décider de moderniser l'application en utilisant React pour le front-end et crée une API REST Laravel pour le back-end avec la même structure de base de donnée relationnel sur PostgreSQL.",
+    role: "Auditeur Interne",
+    outil: ["react", "css", "typescript", "laravel", "api", "postgresql"],
     url: "https://perform-vision.netchill.net/",
     rep: "https://gitlab.sorbonne-paris-nord.fr/lorbh/audit-paqueta",
   },
@@ -200,7 +233,8 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     title: "Site e-commerce",
     subtitle: "DIGI&ITECH",
     description:
-      "Duran mon stage au sein de l'entreprise Digi&Tech, j'ai créer un site de e-commerce à l'aide du framework shopify. Le site a été principalement développé sur le CMS Shopify avec son propre langage de templating LIQUID.",
+      "Duran mon stage au sein de l'entreprise Digi&Tech, j'ai créé un site de e-commerce à l'aide du framework shopify. Le site a été principalement développé sur le CMS Shopify avec son propre langage de templating LIQUID.",
+    role: "Développeur full stack",
     outil: ["shopify", "liquid"],
     url: "https://f904f9-3.myshopify.com",
     rep: "/",
@@ -211,6 +245,7 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     subtitle: "SAS PERFORM VISION",
     description:
       "Pour mon premier semestre en 2ème année de BUT Informatique, j'ai eu pour projet d'entreprise de réaliser, au sein d'un groupe de 6, un site extranet en tant que développeur full stack. Pour ce projet, nous avons décidé de le développer entièrement en PHP avec l'architecture MVC.",
+    role: "Développeur full stack",
     outil: ["html", "css", "js", "php", "postgresql"],
     url: "/",
     rep: "https://gitlab.sorbonne-paris-nord.fr/12203379/zeengine",
@@ -222,6 +257,7 @@ type SideProjectProps = {
   title: string;
   subtitle: string;
   description: string;
+  role: string;
   outil: Array<string>;
   url: string;
   rep: string;
@@ -245,9 +281,9 @@ const WORKS: WorkProps[] = [
   {
     image:
       "https://f904f9-3.myshopify.com/cdn/shop/files/Logo_D_I_Transparent.png?v=1710837473&width=60",
-    title: "Digi&iTech",
+    title: "DIGI&TECH",
     role: "Développeur Full Stack",
-    date: "2024",
+    date: "2 mois",
     url: "/",
   },
   {
@@ -255,7 +291,7 @@ const WORKS: WorkProps[] = [
       "https://media.licdn.com/dms/image/C4D0BAQFKqpSTY7n3Vg/company-logo_200_200/0/1630490023079?e=1724284800&v=beta&t=AdF0oF0ZNoZ6dE2ziZDtII3Q18msDqLfOG_dJDCwLtE",
     title: "GASEL",
     role: "Stagiaire",
-    date: "2018",
+    date: "1 semaine",
     url: "https://gasel.com",
   },
 ];
