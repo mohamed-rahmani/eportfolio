@@ -22,7 +22,7 @@ export const Hero = () => {
           aspects du développement web et de l'algorithmie en plus de
           connaissance en réseau. Aujourd'hui en 2ème année, je suis
           actuellement à la recherche d'un contrat d'apprentissage d'un an avec
-          un rythme d'alternance de 15jours/15jours pour ma dernière année en
+          un rythme d'alternance de 10jours/10jours pour ma dernière année en
           BUT.
         </p>
       </div>
